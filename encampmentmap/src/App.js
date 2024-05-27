@@ -1,5 +1,4 @@
-import React from 'react';
-import popup from './components/popup'
+import Popup from './components/Popup';
 
 function App() {
   return (
@@ -8,9 +7,9 @@ function App() {
         <h1>Encampment Map</h1>
         <br/><br/>
         <button>Open Popup</button>
-        <popup trigger={true}>
+        <Popup trigger={true}>
           <h3>My popup</h3>
-        </popup>
+        </Popup>
       </main>
     </div>
   );
