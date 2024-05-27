@@ -4,19 +4,17 @@ import PinButton from './components/PinButton';
 
 function App() {
   const [buttonPopup, setButtonPopup] = useState(false);
+  const [title, setTitle] = useState();
 
   return (
     <div className="App">
       <main>
-        <h1>Encampment Map</h1>
-        <br /><br />
-        <PinButton name="photo1" onClick={() => alert('click')} />
+        <PinButton name="photo1" onClick={() => { setButtonPopup(true); setTitle(0) }} />
+        <PinButton name="photo2" onClick={() => { setButtonPopup(true); setTitle(1) }} />
+        <PinButton name="photo2" onClick={() => { setButtonPopup(true); setTitle(1) }} />
       </main>
 
-      <Popup trigger={buttonPopup} setTrigger={setButtonPopup}>
-        <h3>My popup</h3>
-        <p>This is my popup</p>
-      </Popup>
+      <Popup popupTitle={title} trigger={buttonPopup} setTrigger={setButtonPopup}/>
     </div>
   );
 }

@@ -1,3 +1,9 @@
 .pin-icon {
     fill: "#18333C";
 }
+
+.photo1 {
+    position: relative;
+    left: 35%;
+    top: 35%;
+}
