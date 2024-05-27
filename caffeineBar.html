@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js" integrity="sha512-ElRFoEQdI5Ht6kZvyzXhYG9NqjtkmlkfYk0wr6wHxU9JEHakS7UJZNeml5ALk+8IKlU6jDgMabC3vkumRokgJA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="caffeineBar.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif&display=swap" rel="stylesheet">
+    <style>
+        div {
+            font-family: 'Noto Serif', serif;
+            /*default font, change if requested*/
+        }
+
+        .header {
+            font-size: 20px;
+            text-align: center;
+            align-content: center;
+        }
+
+        .explainer {
+            font-size: 16px;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+
+        .chart {
+            margin: 1%;
+            margin-top: 0%;
+        }
+
+        hr {
+            border: black solid 1px;
+        }
+
+        .byLine {
+            font-size: 10px;
+            text-align: center;
+        }
+
+        .viz_box {
+            border: 2px black solid
+        }
+
+        @media only screen and (max-width: 800px) {
+            .chart {
+                display: 'block';
+                width: 98% !important;
+                float: left;
+                height: 400px;
+            }
+        }
+
+        @media only screen and (min-width: 800px) {
+            .chart {
+                display: 'block';
+                width: 98% !important;
+                /*CHANGE THIS IF THERE IS MORE THAN ONE CHART */
+                float: left;
+                height: 500px;
+            }
+
+            .viz_box {
+                width: 100%;
+                height: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class='viz_box'>
+        <div class='header'>Caffeine Dependency and Symptoms for College Students</div>
+        <hr>
+        <div class='chartContainer'>
+            <div class='chart'><canvas id='caffeine-bar'></canvas></div>
+        </div>
+        <div class='byLine'>
+            <hr>
+            <a href='https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3777290/'>Source: National Center for Biotechnology Information</a><br> Graphic Reporting by Maia Hull, Quad Contributor. Interactive by Liam McGlynn, Stack Contributor.
+        </div>
+    </div>
+</body>
+
+</html>
