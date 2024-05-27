@@ -11,11 +11,15 @@ main {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+.background {
   background-image: url(images/dickson.png);
   width: 100vw;
   height: 90vh;
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
+  left: 50vw;
 }
 

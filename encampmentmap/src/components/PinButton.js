@@ -4,8 +4,10 @@ import './PinButton.css'
 
 function PinButton(props) {
   return (
-  <div className='container' onClick={props.onClick}>
-    <Pin name={props.name} />
+  <div className={props.name}>
+    <div className='container' onClick={props.onClick}>
+      <Pin name={props.name} />
+    </div>
   </div>
   )
 }
