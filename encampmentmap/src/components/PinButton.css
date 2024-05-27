@@ -19,18 +19,160 @@
 .photo0 {
     position: absolute;
     left: 40%;
-    top: 40%;
+    top: 35%;
     transform: translate(-50%, -50%);
 }
 
 .photo1 {
     position: absolute;
-    left: 40%;
-    top: 60%;
+    left: 45.5%;
+    top: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .photo2 {
     position: absolute;
-    left: 20%;
-    top: 40%;
+    left: 53.5%;
+    top: 50%;
+    transform: translate(-50%, -50%);
 }
+
+.photo3 {
+    position: absolute;
+    left: 35%;
+    top: 55%;
+    transform: translate(-50%, -50%);
+}
+
+.photo4 {
+    position: absolute;
+    left: 54%;
+    top: 42%;
+    transform: translate(-50%, -50%);
+}
+
+.photo5 {
+    position: absolute;
+    left: 58%;
+    top: 35%;
+    transform: translate(-50%, -50%);
+}
+
+.photo6 {
+    position: absolute;
+    left: 45%;
+    top: 5%;
+    transform: translate(-50%, -50%);
+}
+
+.photo7 {
+    position: absolute;
+    left: 43%;
+    top: 40%;
+    transform: translate(-50%, -50%);
+}
+
+.photo8 {
+    position: absolute;
+    left: 57%;
+    top: 53%;
+    transform: translate(-50%, -50%);
+}
+
+.photo9 {
+    position: absolute;
+    left: 85%;
+    top: 35%;
+    transform: translate(-50%, -50%);
+}
+
+.photo10 {
+    position: absolute;
+    left: 38.5%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.photo11 {
+    position: absolute;
+    left: 65%;
+    top: 48%;
+    transform: translate(-50%, -50%);
+}
+
+.photo12 {
+    position: absolute;
+    left: 53%;
+    top: 8%;
+    transform: translate(-50%, -50%);
+}
+
+.photo13 {
+    position: absolute;
+    left: 47%;
+    top: 40%;
+    transform: translate(-50%, -50%);
+}
+
+.photo14 {
+    position: absolute;
+    left: 42%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.photo15 {
+    position: absolute;
+    left: 50%;
+    top: 54%;
+    transform: translate(-50%, -50%);
+}
+
+.photo16 {
+    position: absolute;
+    left: 40%;
+    top: 53%;
+    transform: translate(-50%, -50%);
+}
+
+.photo17 {
+    position: absolute;
+    left: 45%;
+    top: 42%;
+    transform: translate(-50%, -50%);
+}
+
+.photo18 {
+    position: absolute;
+    left: 60%;
+    top: 38%;
+    transform: translate(-50%, -50%);
+}
+
+.photo19 {
+    position: absolute;
+    left: 67%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.photo20 {
+    position: absolute;
+    left: 60%;
+    top: 53%;
+    transform: translate(-50%, -50%);
+}
+
+.photo21 {
+    position: absolute;
+    left: 66%;
+    top: 63%;
+    transform: translate(-50%, -50%);
+}
+
+/* .photo1 {
+    position: absolute;
+    left: 4%;
+    top: 5%;
+    transform: translate(-50%, -50%);
+} */
