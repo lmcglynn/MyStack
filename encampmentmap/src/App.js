@@ -1,24 +1,23 @@
-import Popup from './components/Popup';
-import { useState } from 'react';
-import PinButton from './components/PinButton';
+import React, { useState } from 'react';
+import MapWithPins from './components/MapWithPins';
 
-function App() {
-  const [buttonPopup, setButtonPopup] = useState(false);
-  const [title, setTitle] = useState();
+const App = () => {
+  const [pins, setPins] = useState([
+    { top: 40, left: 30 },
+    { top: 60, left: 50 },
+    // Add more pins as needed
+  ]);
+
+  const handlePinClick = (pin) => {
+    alert(`Pin at ${pin.top}%, ${pin.left}% clicked!`);
+  };
 
   return (
     <div className="App">
-      <main>
-        <div className="background">
-          <PinButton name="photo0" className="photo0" onClick={() => { setButtonPopup(true); setTitle(0) }} />
-          <PinButton name="photo1" className="photo1" onClick={() => { setButtonPopup(true); setTitle(1) }} />
-          <PinButton name="photo2" className="photo2" onClick={() => { setButtonPopup(true); setTitle(2) }} />
-        </div>
-      </main>
-
-      <Popup popupTitle={title} trigger={buttonPopup} setTrigger={setButtonPopup} />
+      <h1>Map with Clickable Pins</h1>
+      <MapWithPins pins={pins} onPinClick={handlePinClick} />
     </div>
   );
-}
+};
 
 export default App;

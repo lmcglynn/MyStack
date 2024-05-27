@@ -1,0 +1,19 @@
+.map-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background-image: url('/images/dickson.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  
+  .pin {
+    position: absolute;
+    width: 20px; /* Adjust size as needed */
+    height: 20px; /* Adjust size as needed */
+    background-color: red; /* Or use an image/icon */
+    border-radius: 50%;
+    cursor: pointer;
+    transform: translate(-50%, -50%);
+  }
