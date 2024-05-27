@@ -3,8 +3,6 @@
   padding: 0;
   box-sizing: border-box;
 
-  background-image: url(dickson.png);
-
   font-family: 'Fira Sans', sans-serif;
 }
 
@@ -15,4 +13,5 @@ main {
   align-items: center;
   justify-content: center;
   min-height: 100vh;
+  background-image: url(../public/images/dickson.png);
 }
