@@ -1,6 +1,6 @@
 import Popup from './components/Popup';
 import { useState } from 'react';
-import Pin from './components/Pin';
+import PinButton from './components/PinButton';
 
 function App() {
   const [buttonPopup, setButtonPopup] = useState(false);
@@ -10,7 +10,7 @@ function App() {
       <main>
         <h1>Encampment Map</h1>
         <br /><br />
-        <Pin />
+        <PinButton name="photo1" onClick={() => alert('click')} />
       </main>
 
       <Popup trigger={buttonPopup} setTrigger={setButtonPopup}>

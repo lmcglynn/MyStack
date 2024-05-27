@@ -4,8 +4,8 @@ import './PinButton.css'
 
 function PinButton(props) {
   return (
-  <div className='container'>
-    <Pin name="photo1" onClick={() => alert('click')}/>
+  <div className='container' onClick={props.onClick}>
+    <Pin name="props.name" />
   </div>
   )
 }
