@@ -14,12 +14,12 @@ main {
 }
 
 .background {
+  position: relative;
   background-image: url(images/dickson.png);
   width: 100vw;
-  height: 90vh;
+  height: 100vh;
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
-  left: 50vw;
 }
 
