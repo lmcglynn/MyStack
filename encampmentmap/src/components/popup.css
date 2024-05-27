@@ -24,3 +24,8 @@
     top: 16px;
     right: 16px;
 }
+
+.popup-inner .icon-image {
+    width: 24px;  /* Adjust the size as needed */
+    height: 24px;
+}
