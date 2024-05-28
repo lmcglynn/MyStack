@@ -193,4 +193,4 @@ function popup(props) {
   ) : "";
 }
 
-export default popup
+export default Popup
