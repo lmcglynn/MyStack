@@ -1,6 +1,6 @@
 import Popup from './components/Popup,js';
 import { useState } from 'react';
-import PinButton from './components/PinButton,js';
+import PinButton from './components/PinButton.js';
 
 function App() {
   const [buttonPopup, setButtonPopup] = useState(false);
