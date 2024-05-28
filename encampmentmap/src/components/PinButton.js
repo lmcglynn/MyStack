@@ -1,5 +1,5 @@
 import React from 'react'
-import Pin from './Pin'
+import Pin from './Pin.js'
 import './PinButton.css'
 
 function PinButton(props) {
