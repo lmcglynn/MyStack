@@ -199,7 +199,7 @@ function Popup(props) {
         <h2>{content[props.popupTitle].title}</h2>
         <br />
         <img src={content[props.popupTitle].image} alt='altText' width="100%" height="100%" />
-        <br /><br />
+        <br />
         <p> {content[props.popupTitle].description} </p>
         <div className='byline'>
           {content[props.popupTitle].byline}
