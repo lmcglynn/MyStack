@@ -1,7 +1,7 @@
 .container {
     display: flex;
-    width: 20px;
-    height: 20px;
+    width: 0px;
+    height: 0px;
     border-radius: 50%;
     box-sizing: border-box;
     padding: auto;
@@ -13,7 +13,7 @@
 }
 
 .container:hover {
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    box-shadow: 0 0px 6px 10px rgba(0, 0, 0, 0.2), 0 0px 6px 10px rgba(0, 0, 0, 0.27);
 }
 
 .photo0 {

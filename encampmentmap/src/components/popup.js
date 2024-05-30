@@ -104,7 +104,7 @@ const content = [
     image: 'https://wp.dailybruin.com/images/2024/05/14.sweep_.BJM_5.jpg',
     description: "A man wearing a jacket that reads “Anti Genocide Social Club” records a livestream of a line of CHP officers between Royce Hall and Haines Hall. The line of officers ordered a clearing of the area and threatened to arrest three Daily Bruin reporters.",
     byline: "(Brandon Morquecho/Photo editor)",
-    date: "May , 2024"
+    date: "May 2, 2024 2:04 a.m."
   },
   {
     name: 'photo13',
