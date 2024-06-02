@@ -1,8 +1,6 @@
 import Popup from './components/Popup.js';
 import { useState } from 'react';
 import PinButton from './components/PinButton.js';
-import Map from './components/Map.js';
-
 
 function App() {
   const [buttonPopup, setButtonPopup] = useState(false);
@@ -11,8 +9,7 @@ function App() {
   return (
     <div className="App">
       <main>
-        <Map />
-        {/* <div className="map-container">
+        <div className="map-container">
           <div className="map-content">
             <PinButton name="photo0" className="photo0" onClick={() => { setButtonPopup(true); setTitle(0) }} />
             <PinButton name="photo1" className="photo1" onClick={() => { setButtonPopup(true); setTitle(1) }} />
@@ -37,7 +34,7 @@ function App() {
             <PinButton name="photo20" className="photo20" onClick={() => { setButtonPopup(true); setTitle(20) }} />
             <PinButton name="photo21" className="photo21" onClick={() => { setButtonPopup(true); setTitle(21) }} />
           </div>
-        </div> */}
+        </div>
       </main>
 
       <Popup popupTitle={title} trigger={buttonPopup} setTrigger={setButtonPopup} />
