@@ -1,0 +1,7 @@
+.leaflet-container {
+    position: relative;
+}
+
+.custom-marker {
+    pointer-events: auto;
+}
