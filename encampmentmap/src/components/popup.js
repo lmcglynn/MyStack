@@ -175,15 +175,6 @@ const content = [
   },
   {
     name: 'photo19',
-    title: 'Confrontation',
-    image: 'https://wp.dailybruin.com/images/2024/04/11-SS2.jpg',
-    description: "A counter-protester wearing a Donald Trump 2024 hat and holding a half-Israeli and half-American flag confronts Palestine supporters.",
-    byline: "(Sharla Steinman/Daily Bruin senior staff)",
-    date: "4/28",
-    fulldate: "April 28, 2024"
-  },
-  {
-    name: 'photo20',
     title: 'Flag',
     image: 'https://wp.dailybruin.com/images/2024/04/13-JC2.jpg',
     description: "Pro-Palestine demonstrators wave a large Palestinian flag.",

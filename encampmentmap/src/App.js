@@ -46,8 +46,7 @@ const markers = [
   { index: 16, coords: sum(center, [4*d, 0*d]), day: 1 },
   { index: 17, coords: sum(center, [4.8*d, 10*d]), day: 4 },
   { index: 18, coords: sum(center, [2.4*d, 14*d]), day: 4 },
-  { index: 19, coords: sum(center, [0.5*d, 9*d]), day: 4 },
-  { index: 20, coords: sum(center, [-1.5*d, 14*d]), day: 4 },
+  { index: 19, coords: sum(center, [-1.5*d, 14*d]), day: 4 },
   // { index: , coords: sum(center, [1*d, 1*d]), day:  },
 ]
 
