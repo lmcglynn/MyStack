@@ -1,13 +1,14 @@
 import React from 'react';
 import Popup from './components/Popup.js';
 import { useState } from 'react';
-import PinButton from './components/PinButton.js';
-import { MapContainer, TileLayer, useMap, Marker } from 'react-leaflet'
+// import PinButton from './components/PinButton.js';
+import { MapContainer, TileLayer, Marker } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
 import pinIcon from './images/map-pin.png';
 import Box from '@mui/material/Box';
 import Slider from '@mui/material/Slider';
+import "overlapping-marker-spiderfier-leaflet/dist/oms";
 
 const customIcon = L.icon({
   iconUrl: pinIcon,
@@ -16,6 +17,49 @@ const customIcon = L.icon({
 });
 
 L.Marker.prototype.options.icon = customIcon;
+
+function sum(array1, array2) {  
+  return Array.from({ length: 2 }, (_, i) => 
+    (array1[i] || 0) + (array2[i] || 0)
+);}
+
+const center = [34.072000, -118.442184];
+const d = 0.0001;
+
+const markers = [
+  { // marker 0
+    coords: sum(center, [5*d, -4*d]),
+    day: 8,
+  },
+  { // marker 1
+    coords: sum(center, [2*d, -1*d]),
+    day: 8,
+  },
+  { // marker2
+    coords: sum(center, [2.8*d, 5.4*d]),
+    day: 7,
+  },
+  { // marker 3
+    coords: sum(center, [0*d, -8*d]),
+    day: 7,
+  },
+  { // marker 4
+    coords: sum(center, [4*d, 5.4*d]),
+    day: 8,
+  },
+  { // marker 5
+    coords: sum(center, [5*d, 8*d]),
+    day: 2,
+  },
+  { // marker 6
+    coords: sum(center, [15*d, 0*d]),
+    day: 7,
+  },
+  // { // marker 
+  //   coords: sum(center, [1*d, 1*d]),
+  //   day: ,
+  // },
+]
 
 const marks = [
   {
@@ -53,7 +97,7 @@ const marks = [
 ];
 
 function valueLabelFormat(value) {
-  let label = marks[value-1].label;
+  const label = marks[value-1].label;
   return `${label}`;
 }
 
@@ -70,8 +114,6 @@ function valueLabelFormat(value) {
 function App() {
   const [buttonPopup, setButtonPopup] = useState(false);
   const [title, setTitle] = useState();
-  const center = [34.072000, -118.442184];
-  const d = 0.0001;
 
   const [sliderValue, setValue] = React.useState([1, 8]);
   const handleChange = (event, newValue) => {
@@ -81,7 +123,7 @@ function App() {
   return (
     <div className="App">
       <main>
-        <MapContainer center={center} zoom={17} minZoom={12} maxZoom={22} zoomSnap={0.5} style={{ height: "90vh", width: "100vw", justifyContent: "center", alignItems: "center" }}>
+        <MapContainer center={center} zoom={18} minZoom={17} maxZoom={22} zoomSnap={0.5} style={{ height: "90vh", width: "100vw", justifyContent: "center", alignItems: "center" }}>
           <TileLayer
             url={`https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibG1jZ2x5bm4iLCJhIjoiY2x3eTl2aG1yMWl4NTJscG43YXNpbzhhbCJ9.6mhcQQwoDKmKi2sPpi9Wug`}
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -91,40 +133,87 @@ function App() {
             accessToken='pk.eyJ1IjoibG1jZ2x5bm4iLCJhIjoiY2x3eTl2aG1yMWl4NTJscG43YXNpbzhhbCJ9.6mhcQQwoDKmKi2sPpi9Wug'
             maxZoom={22}
           />
-          {sliderValue[0] <= 1 && 1 <= sliderValue[1] && (
-            <Marker position={center}
+          {sliderValue[0] <= markers[0].day && markers[0].day <= sliderValue[1] && (
+            <Marker position={markers[0].coords}
               eventHandlers={{
                 click: () => {
-                  console.log('marker clicked')
                   setButtonPopup(true)
                   setTitle(0);
                 },
               }}
             />
           )}
-          {sliderValue[0] <= 2 && 2 <= sliderValue[1] && (
-            <Marker position={[center[0] - 2 * d, center[1]]}
+          {sliderValue[0] <= markers[1].day && markers[1].day <= sliderValue[1] && (
+            <Marker 
+            position={markers[1].coords}
               eventHandlers={{
                 click: () => {
-                  console.log('marker clicked')
                   setButtonPopup(true)
                   setTitle(1);
                 },
               }}
             />
           )}
-          {sliderValue[0] <= 2 && 2 <= sliderValue[1] && (
-            <Marker position={[center[0] - 2 * d, center[1] + 2 * d]}
+          {sliderValue[0] <= markers[2].day && markers[2].day <= sliderValue[1] && (
+            <Marker position={markers[2].coords}
               eventHandlers={{
                 click: () => {
-                  console.log('marker clicked')
                   setButtonPopup(true)
                   setTitle(2);
                 },
               }}
             />
           )}
-
+          {sliderValue[0] <= markers[3].day && markers[3].day <= sliderValue[1] && (
+            <Marker position={markers[3].coords}
+              eventHandlers={{
+                click: () => {
+                  setButtonPopup(true)
+                  setTitle(3);
+                },
+              }}
+            />
+          )}
+          {sliderValue[0] <= markers[4].day && markers[4].day <= sliderValue[1] && (
+            <Marker position={markers[4].coords}
+              eventHandlers={{
+                click: () => {
+                  setButtonPopup(true)
+                  setTitle(4);
+                },
+              }}
+            />
+          )}
+          {sliderValue[0] <= markers[5].day && markers[5].day <= sliderValue[1] && (
+            <Marker position={markers[5].coords}
+              eventHandlers={{
+                click: () => {
+                  setButtonPopup(true)
+                  setTitle(5);
+                },
+              }}
+            />
+          )}
+          {sliderValue[0] <= markers[6].day && markers[6].day <= sliderValue[1] && (
+            <Marker position={markers[6].coords}
+              eventHandlers={{
+                click: () => {
+                  setButtonPopup(true)
+                  setTitle(6);
+                },
+              }}
+            />
+          )}
+          {/* {sliderValue[0] <= markers[].day && markers[].day <= sliderValue[1] && (
+            <Marker position={markers[].coords}
+              eventHandlers={{
+                click: () => {
+                  setButtonPopup(true)
+                  setTitle();
+                },
+              }}
+            />
+          )} */}
         </MapContainer>
         <div className='slider-box'>
         <Box sx={{ width: 300 }}>
@@ -156,32 +245,3 @@ function App() {
 }
 
 export default App;
-
-{/* <main>
-        <div className="map-container">
-          <div className="map-content">
-            <PinButton name="photo0" className="photo0" onClick={() => { setButtonPopup(true); setTitle(0) }} />
-            <PinButton name="photo1" className="photo1" onClick={() => { setButtonPopup(true); setTitle(1) }} />
-            <PinButton name="photo2" className="photo2" onClick={() => { setButtonPopup(true); setTitle(2) }} />
-            <PinButton name="photo3" className="photo3" onClick={() => { setButtonPopup(true); setTitle(3) }} />
-            <PinButton name="photo4" className="photo4" onClick={() => { setButtonPopup(true); setTitle(4) }} />
-            <PinButton name="photo5" className="photo5" onClick={() => { setButtonPopup(true); setTitle(5) }} />
-            <PinButton name="photo6" className="photo6" onClick={() => { setButtonPopup(true); setTitle(6) }} />
-            <PinButton name="photo7" className="photo7" onClick={() => { setButtonPopup(true); setTitle(7) }} />
-            <PinButton name="photo8" className="photo8" onClick={() => { setButtonPopup(true); setTitle(8) }} />
-            <PinButton name="photo9" className="photo9" onClick={() => { setButtonPopup(true); setTitle(9) }} />
-            <PinButton name="photo10" className="photo10" onClick={() => { setButtonPopup(true); setTitle(10) }} />
-            <PinButton name="photo11" className="photo11" onClick={() => { setButtonPopup(true); setTitle(11) }} />
-            <PinButton name="photo12" className="photo12" onClick={() => { setButtonPopup(true); setTitle(12) }} />
-            <PinButton name="photo13" className="photo13" onClick={() => { setButtonPopup(true); setTitle(13) }} />
-            <PinButton name="photo14" className="photo14" onClick={() => { setButtonPopup(true); setTitle(14) }} />
-            <PinButton name="photo15" className="photo15" onClick={() => { setButtonPopup(true); setTitle(15) }} />
-            <PinButton name="photo16" className="photo16" onClick={() => { setButtonPopup(true); setTitle(16) }} />
-            <PinButton name="photo17" className="photo17" onClick={() => { setButtonPopup(true); setTitle(17) }} />
-            <PinButton name="photo18" className="photo18" onClick={() => { setButtonPopup(true); setTitle(18) }} />
-            <PinButton name="photo19" className="photo19" onClick={() => { setButtonPopup(true); setTitle(19) }} />
-            <PinButton name="photo20" className="photo20" onClick={() => { setButtonPopup(true); setTitle(20) }} />
-            <PinButton name="photo21" className="photo21" onClick={() => { setButtonPopup(true); setTitle(21) }} />
-          </div>
-        </div>
-      </main> */}
