@@ -68,6 +68,12 @@ function Spiderfier({ sliderValue, setButtonPopup, setTitle }) {
           .on('click', () => {
             setButtonPopup(true);
             setTitle(marker.index);
+          })
+          .on('mouseover', function() {
+            this.getElement().classList.add('marker-icon');
+          })
+          .on('mouseout', function() {
+            this.getElement().classList.remove('marker-icon');
           });
         oms.addMarker(leafletMarker);
         return leafletMarker;
