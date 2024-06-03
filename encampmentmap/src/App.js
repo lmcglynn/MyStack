@@ -1,7 +1,6 @@
 import React from 'react';
 import Popup from './components/Popup.js';
 import { useState, useEffect } from 'react';
-// import PinButton from './components/PinButton.js';
 import { MapContainer, TileLayer, useMap } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
@@ -35,6 +34,20 @@ const markers = [
   { index: 4, coords: sum(center, [4*d, 5.4*d]), day: 8 },
   { index: 5, coords: sum(center, [5*d, 8*d]), day: 2 },
   { index: 6, coords: sum(center, [15*d, 0*d]), day: 7 },
+  { index: 7, coords: sum(center, [4*d, -1*d]), day: 3 },
+  { index: 8, coords: sum(center, [0.7*d, 7*d]), day: 8 },
+  { index: 9, coords: sum(center, [2.8*d, -7.8*d]), day: 6 },
+  { index: 10, coords: sum(center, [2*d, 12*d]), day: 8 },
+  { index: 11, coords: sum(center, [13*d, 5.2*d]), day: 8 },
+  { index: 12, coords: sum(center, [4*d, 1*d]), day: 2 },
+  { index: 13, coords: sum(center, [1*d, -3*d]), day: 1 },
+  { index: 14, coords: sum(center, [-0.2*d, 3.3*d]), day: 2 },
+  { index: 15, coords: sum(center, [1*d, -4.5*d]), day: 1 },
+  { index: 16, coords: sum(center, [4*d, 0*d]), day: 1 },
+  { index: 17, coords: sum(center, [4.8*d, 10*d]), day: 4 },
+  { index: 18, coords: sum(center, [2.4*d, 14*d]), day: 4 },
+  { index: 19, coords: sum(center, [0.5*d, 9*d]), day: 4 },
+  { index: 20, coords: sum(center, [-1.5*d, 14*d]), day: 4 },
   // { index: , coords: sum(center, [1*d, 1*d]), day:  },
 ]
 
@@ -100,10 +113,18 @@ function App() {
   return (
     <div className="App">
       <main>
-        <MapContainer center={center} zoom={18} minZoom={17} maxZoom={22} zoomSnap={0.5} style={{ height: "90vh", width: "100vw", justifyContent: "center", alignItems: "center" }}>
+        <MapContainer 
+        center={center} 
+        zoom={18} 
+        minZoom={17} 
+        maxZoom={22} 
+        zoomSnap={0.5} 
+        maxBounds={[[center[0]-0.01, center[1]-0.015], [center[0]+0.007, center[1]+0.007]]} // Southwest and Northeast coordinates
+        maxBoundsViscosity={1.0}
+        style={{ height: "90vh", width: "100vw", justifyContent: "center", alignItems: "center" }}>
           <TileLayer
             url={`https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibG1jZ2x5bm4iLCJhIjoiY2x3eTl2aG1yMWl4NTJscG43YXNpbzhhbCJ9.6mhcQQwoDKmKi2sPpi9Wug`}
-            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors (Liam McGlynn/Daily Bruin)'
+            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors | (Liam McGlynn/Daily Bruin)'
             id="mapbox/streets-v11" // You can change this to other styles like 'mapbox/satellite-v9'
             tileSize={512}
             zoomOffset={-1}

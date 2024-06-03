@@ -85,15 +85,6 @@ const content = [
   },
   {
     name: 'photo9',
-    title: 'Dodd Hall March',
-    image: 'https://wp.dailybruin.com/images/2024/05/web.news_.UCPDrelease5.8.ADL_.jpg',
-    description: "Individuals are pictured in front of Dodd Hall on Monday. Individuals, including students, marched from Moore Hall to Dodd Hall after 44 people were arrested in Parking Structure 2, according to a UCPD news release Wednesday.",
-    byline: "(Anna Dai-Liu/Daily Bruin senior staff)",
-    date: "5/6",
-    fulldate: "May 6, 2024 9:36 a.m."
-  },
-  {
-    name: 'photo10',
     title: 'Chants',
     image: 'https://wp.dailybruin.com/images/2024/05/12.sweep_.MF_4.jpg',
     description: "A pro-Palestine protester chants at the top of Janss Steps after a group of police officers initially retreated from the encampment.",
@@ -102,7 +93,7 @@ const content = [
     fulldate: "May 2, 2024 12:56 a.m."
   },
   {
-    name: 'photo11',
+    name: 'photo10',
     title: 'LASD Buses',
     image: 'https://wp.dailybruin.com/images/2024/05/NG11.jpg',
     description: "Law enforcement officers from the LA County Sheriff’s Department and California Highway Patrol gather near a bus being used to transport detained protesters after the sweep of the encampment Thursday morning.",
@@ -111,7 +102,7 @@ const content = [
     fulldate: "May 2, 2024 6:49 a.m."
   },
   {
-    name: 'photo12',
+    name: 'photo11',
     title: 'Livestream',
     image: 'https://wp.dailybruin.com/images/2024/05/14.sweep_.BJM_5.jpg',
     description: "A man wearing a jacket that reads “Anti Genocide Social Club” records a livestream of a line of CHP officers between Royce Hall and Haines Hall. The line of officers ordered a clearing of the area and threatened to arrest three Daily Bruin reporters.",
@@ -120,7 +111,7 @@ const content = [
     fulldate: "May 2, 2024 2:04 a.m."
   },
   {
-    name: 'photo13',
+    name: 'photo12',
     title: 'Prayer',
     image: 'https://wp.dailybruin.com/images/2024/04/4.AGS2_.jpg',
     description: "Some protesters in the Dickson Plaza encampment participate in Jumaa prayer while other members of the protest form a circle around those praying.",
@@ -129,7 +120,7 @@ const content = [
     fulldate: "April 26, 2024 12:23 p.m."
   },
   {
-    name: 'photo14',
+    name: 'photo13',
     title: 'Banner',
     image: 'https://wp.dailybruin.com/images/2024/04/8.DS4_-1.jpg',
     description: "A banner that reads “Palestine Solidarity Encampment” features a watermelon, and stands across a food and necessities tent. The watermelon has become an unofficial symbol of protest for Palestine supporters, representing defiance and resistance against the occupation of Palestine.",
@@ -138,7 +129,7 @@ const content = [
     fulldate: "April 25, 2024 9:29 a.m."
   },
   {
-    name: 'photo15',
+    name: 'photo14',
     title: 'Posters',
     image: 'https://wp.dailybruin.com/images/2024/04/9.AGS1_.jpg',
     description: "Protesters place homemade signs with pro-Palestinian slogans around a second layer of metal fencing that was erected by UCLA officials Friday morning after constructing an initial layer Thursday night.",
@@ -147,7 +138,7 @@ const content = [
     fulldate: "April 26, 2024 12:02 p.m."
   },
   {
-    name: 'photo16',
+    name: 'photo15',
     title: 'Solidarity',
     image: 'https://wp.dailybruin.com/images/2024/04/12.JZH3_.jpg',
     description: "Protesters encircle Dickson Plaza with arms intertwined in display of solidarity.",
@@ -156,7 +147,7 @@ const content = [
     fulldate: "April 25, 2024 5:32 p.m."
   },
   {
-    name: 'photo17',
+    name: 'photo16',
     title: 'Counter-Protesters',
     image: 'https://wp.dailybruin.com/images/2024/04/17.JZH1_.jpg',
     description: "Counter-protesters gather in front of Royce Hall on Thursday afternoon. The counter-protesters and protesters, separated by Contemporary Services Corporation security officers, confronted each other at Dickson Plaza.",
@@ -165,7 +156,7 @@ const content = [
     fulldate: "April 25, 2024 5:47 p.m."
   },
   {
-    name: 'photo18',
+    name: 'photo17',
     title: 'Pro-Israel Rally',
     image: 'https://wp.dailybruin.com/images/2024/04/3-ZI2.jpg',
     description: "Following a musical performance at the pro-Israel rally – which was organized in response to the encampment – a singer shares an embrace with another event speaker.",
@@ -174,7 +165,7 @@ const content = [
     fulldate: "April 28, 2024 2:47 p.m."
   },
   {
-    name: 'photo19',
+    name: 'photo18',
     title: 'Ripped Poster',
     image: 'https://wp.dailybruin.com/images/2024/04/10-SS1.jpg',
     description: "A crowd watches a counter-protester rip through a poster displaying support for Palestine with a switchblade during a rally Sunday that was led by the IAC.",
@@ -183,7 +174,7 @@ const content = [
     fulldate: "April 28, 2024 11:58 a.m."
   },
   {
-    name: 'photo20',
+    name: 'photo19',
     title: 'Confrontation',
     image: 'https://wp.dailybruin.com/images/2024/04/11-SS2.jpg',
     description: "A counter-protester wearing a Donald Trump 2024 hat and holding a half-Israeli and half-American flag confronts Palestine supporters.",
@@ -192,7 +183,7 @@ const content = [
     fulldate: "April 28, 2024"
   },
   {
-    name: 'photo21',
+    name: 'photo20',
     title: 'Flag',
     image: 'https://wp.dailybruin.com/images/2024/04/13-JC2.jpg',
     description: "Pro-Palestine demonstrators wave a large Palestinian flag.",
