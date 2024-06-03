@@ -13,6 +13,11 @@ main {
   justify-content: center;
 }
 
+.App {
+  align-items: center;
+  justify-content: center;
+}
+
 .map-container {
   position: relative;
   width: 100%;
