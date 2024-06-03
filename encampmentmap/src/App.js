@@ -1,14 +1,15 @@
 import React from 'react';
 import Popup from './components/Popup.js';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 // import PinButton from './components/PinButton.js';
-import { MapContainer, TileLayer, Marker } from 'react-leaflet'
+import { MapContainer, TileLayer, useMap } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
 import pinIcon from './images/map-pin.png';
 import Box from '@mui/material/Box';
 import Slider from '@mui/material/Slider';
 import "overlapping-marker-spiderfier-leaflet/dist/oms";
+const OverlappingMarkerSpiderfier = window.OverlappingMarkerSpiderfier;
 
 const customIcon = L.icon({
   iconUrl: pinIcon,
@@ -28,34 +29,42 @@ const d = 0.0001;
 
 const markers = [
   { // marker 0
+    index: 0,
     coords: sum(center, [5*d, -4*d]),
     day: 8,
   },
   { // marker 1
+    index: 1,
     coords: sum(center, [2*d, -1*d]),
     day: 8,
   },
   { // marker2
+    index: 2,
     coords: sum(center, [2.8*d, 5.4*d]),
     day: 7,
   },
   { // marker 3
+    index: 3,
     coords: sum(center, [0*d, -8*d]),
     day: 7,
   },
   { // marker 4
+    index: 4,
     coords: sum(center, [4*d, 5.4*d]),
     day: 8,
   },
   { // marker 5
+    index: 5,
     coords: sum(center, [5*d, 8*d]),
     day: 2,
   },
   { // marker 6
+    index: 6,
     coords: sum(center, [15*d, 0*d]),
     day: 7,
   },
   // { // marker 
+  //   index: ,
   //   coords: sum(center, [1*d, 1*d]),
   //   day: ,
   // },
@@ -101,15 +110,33 @@ function valueLabelFormat(value) {
   return `${label}`;
 }
 
-// const pinIcon = L.icon({
-//   iconUrl: pinIcon,
-//   iconSize: [24, 24], // size of the icon
-//   iconAnchor: [12, 41], // point of the icon which will correspond to marker's location
-//   popupAnchor: [12, 24], // point from which the popup should open relative to the iconAnchor
-//   // shadowUrl: 'leaflet/dist/images/marker-shadow.png',
-//   // shadowSize: [41, 41], // size of the shadow
-//   // shadowAnchor: [12, 41] // point of the shadow which will correspond to marker's location
-// });
+function Spiderfier({ sliderValue, setButtonPopup, setTitle }) {
+  const map = useMap();
+
+  useEffect(() => {
+    const oms = new OverlappingMarkerSpiderfier(map, { keepSpiderfied: true });
+
+    const newMarkers = markers
+      .filter(marker => sliderValue[0] <= marker.day && marker.day <= sliderValue[1])
+      .map((marker) => {
+        const leafletMarker = L.marker(marker.coords, { icon: customIcon })
+          .addTo(map)
+          .on('click', () => {
+            setButtonPopup(true);
+            setTitle(marker.index);
+          });
+        oms.addMarker(leafletMarker);
+        return leafletMarker;
+      });
+
+
+    return () => {
+      newMarkers.forEach(marker => map.removeLayer(marker));
+    };
+  }, [map, sliderValue, setButtonPopup, setTitle]);
+
+  return null;
+}
 
 function App() {
   const [buttonPopup, setButtonPopup] = useState(false);
@@ -133,87 +160,7 @@ function App() {
             accessToken='pk.eyJ1IjoibG1jZ2x5bm4iLCJhIjoiY2x3eTl2aG1yMWl4NTJscG43YXNpbzhhbCJ9.6mhcQQwoDKmKi2sPpi9Wug'
             maxZoom={22}
           />
-          {sliderValue[0] <= markers[0].day && markers[0].day <= sliderValue[1] && (
-            <Marker position={markers[0].coords}
-              eventHandlers={{
-                click: () => {
-                  setButtonPopup(true)
-                  setTitle(0);
-                },
-              }}
-            />
-          )}
-          {sliderValue[0] <= markers[1].day && markers[1].day <= sliderValue[1] && (
-            <Marker 
-            position={markers[1].coords}
-              eventHandlers={{
-                click: () => {
-                  setButtonPopup(true)
-                  setTitle(1);
-                },
-              }}
-            />
-          )}
-          {sliderValue[0] <= markers[2].day && markers[2].day <= sliderValue[1] && (
-            <Marker position={markers[2].coords}
-              eventHandlers={{
-                click: () => {
-                  setButtonPopup(true)
-                  setTitle(2);
-                },
-              }}
-            />
-          )}
-          {sliderValue[0] <= markers[3].day && markers[3].day <= sliderValue[1] && (
-            <Marker position={markers[3].coords}
-              eventHandlers={{
-                click: () => {
-                  setButtonPopup(true)
-                  setTitle(3);
-                },
-              }}
-            />
-          )}
-          {sliderValue[0] <= markers[4].day && markers[4].day <= sliderValue[1] && (
-            <Marker position={markers[4].coords}
-              eventHandlers={{
-                click: () => {
-                  setButtonPopup(true)
-                  setTitle(4);
-                },
-              }}
-            />
-          )}
-          {sliderValue[0] <= markers[5].day && markers[5].day <= sliderValue[1] && (
-            <Marker position={markers[5].coords}
-              eventHandlers={{
-                click: () => {
-                  setButtonPopup(true)
-                  setTitle(5);
-                },
-              }}
-            />
-          )}
-          {sliderValue[0] <= markers[6].day && markers[6].day <= sliderValue[1] && (
-            <Marker position={markers[6].coords}
-              eventHandlers={{
-                click: () => {
-                  setButtonPopup(true)
-                  setTitle(6);
-                },
-              }}
-            />
-          )}
-          {/* {sliderValue[0] <= markers[].day && markers[].day <= sliderValue[1] && (
-            <Marker position={markers[].coords}
-              eventHandlers={{
-                click: () => {
-                  setButtonPopup(true)
-                  setTitle();
-                },
-              }}
-            />
-          )} */}
+          <Spiderfier sliderValue={sliderValue} setButtonPopup={setButtonPopup} setTitle={setTitle} />
         </MapContainer>
         <div className='slider-box'>
         <Box sx={{ width: 300 }}>
@@ -225,7 +172,6 @@ function App() {
             valueLabelFormat={valueLabelFormat}
             min={1}
             max={8}
-            // step={1}
             sx={{
               width: 300,
               color: 'success.main',
