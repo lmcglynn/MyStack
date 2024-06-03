@@ -6,17 +6,23 @@ import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
 import pinIcon from './images/map-pin.png';
 
-delete L.Icon.Default.prototype._getIconUrl;
-
 const customIcon = L.icon({
   iconUrl: pinIcon,
   iconSize: [24, 24], // size of the icon
-  iconAnchor: [12, 41], // point of the icon which will correspond to marker's location
-  popupAnchor: [1, -34], // point from which the popup should open relative to the iconAnchor
-  // shadowUrl: 'leaflet/dist/images/marker-shadow.png',
-  // shadowSize: [41, 41], // size of the shadow
-  // shadowAnchor: [12, 41] // point of the shadow which will correspond to marker's location
+  iconAnchor: [12, 24], // point of the icon which will correspond to marker's location
 });
+
+L.Marker.prototype.options.icon = customIcon;
+
+// const pinIcon = L.icon({
+//   iconUrl: pinIcon,
+//   iconSize: [24, 24], // size of the icon
+//   iconAnchor: [12, 41], // point of the icon which will correspond to marker's location
+//   popupAnchor: [12, 24], // point from which the popup should open relative to the iconAnchor
+//   // shadowUrl: 'leaflet/dist/images/marker-shadow.png',
+//   // shadowSize: [41, 41], // size of the shadow
+//   // shadowAnchor: [12, 41] // point of the shadow which will correspond to marker's location
+// });
 
 function App() {
   const [buttonPopup, setButtonPopup] = useState(false);
@@ -32,13 +38,18 @@ function App() {
   return (
     <div className="App">
       <main>
-        <MapContainer center={center} zoom={17} minZoom={15} style={{ height: "90vh", width: "100vw", justifyContent: "center", alignItems: "center" }}>
+        <MapContainer center={center} zoom={17} minZoom={12} maxZoom={22} zoomSnap={0.5} style={{ height: "90vh", width: "100vw", justifyContent: "center", alignItems: "center" }}>
           <TileLayer
-            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            url={`https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibG1jZ2x5bm4iLCJhIjoiY2x3eTl2aG1yMWl4NTJscG43YXNpbzhhbCJ9.6mhcQQwoDKmKi2sPpi9Wug`}
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            id="mapbox/streets-v11" // You can change this to other styles like 'mapbox/satellite-v9'
+            tileSize={512}
+            zoomOffset={-1}
+            accessToken='pk.eyJ1IjoibG1jZ2x5bm4iLCJhIjoiY2x3eTl2aG1yMWl4NTJscG43YXNpbzhhbCJ9.6mhcQQwoDKmKi2sPpi9Wug'
+            maxZoom={22}
           />
           {sliderValue == 1 && (
-            <Marker position={center} icon={customIcon} 
+            <Marker position={center} 
               eventHandlers={{
                 click: () => {
                   console.log('marker clicked')
@@ -49,7 +60,7 @@ function App() {
             />
           )}
           {sliderValue == 2 && (
-            <Marker position={[center[0]-2*d, center[1]]} icon={customIcon}
+            <Marker position={[center[0] - 2 * d, center[1]]} 
               eventHandlers={{
                 click: () => {
                   console.log('marker clicked')
@@ -60,7 +71,7 @@ function App() {
             />
           )}
           {sliderValue == 2 && (
-            <Marker position={[center[0]-2*d, center[1]+2*d]} icon={customIcon}
+            <Marker position={[center[0] - 2 * d, center[1] + 2 * d]} 
               eventHandlers={{
                 click: () => {
                   console.log('marker clicked')
