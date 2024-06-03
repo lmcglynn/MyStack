@@ -28,81 +28,25 @@ const center = [34.072000, -118.442184];
 const d = 0.0001;
 
 const markers = [
-  { // marker 0
-    index: 0,
-    coords: sum(center, [5*d, -4*d]),
-    day: 8,
-  },
-  { // marker 1
-    index: 1,
-    coords: sum(center, [2*d, -1*d]),
-    day: 8,
-  },
-  { // marker2
-    index: 2,
-    coords: sum(center, [2.8*d, 5.4*d]),
-    day: 7,
-  },
-  { // marker 3
-    index: 3,
-    coords: sum(center, [0*d, -8*d]),
-    day: 7,
-  },
-  { // marker 4
-    index: 4,
-    coords: sum(center, [4*d, 5.4*d]),
-    day: 8,
-  },
-  { // marker 5
-    index: 5,
-    coords: sum(center, [5*d, 8*d]),
-    day: 2,
-  },
-  { // marker 6
-    index: 6,
-    coords: sum(center, [15*d, 0*d]),
-    day: 7,
-  },
-  // { // marker 
-  //   index: ,
-  //   coords: sum(center, [1*d, 1*d]),
-  //   day: ,
-  // },
+  { index: 0, coords: sum(center, [5*d, -4*d]), day: 8 },
+  { index: 1, coords: sum(center, [2*d, -1*d]), day: 8 },
+  { index: 2, coords: sum(center, [2.8*d, 5.4*d]), day: 7 },
+  { index: 3, coords: sum(center, [0*d, -8*d]), day: 7 },
+  { index: 4, coords: sum(center, [4*d, 5.4*d]), day: 8 },
+  { index: 5, coords: sum(center, [5*d, 8*d]), day: 2 },
+  { index: 6, coords: sum(center, [15*d, 0*d]), day: 7 },
+  // { index: , coords: sum(center, [1*d, 1*d]), day:  },
 ]
 
 const marks = [
-  {
-    value: 1,
-    label: '4/25',
-  },
-  {
-    value: 2,
-    label: '4/26',
-  },
-  {
-    value: 3,
-    label: '4/27',
-  },
-  {
-    value: 4,
-    label: '4/28',
-  },
-  {
-    value: 5,
-    label: '4/29',
-  },
-  {
-    value: 6,
-    label: '4/30',
-  },
-  {
-    value: 7,
-    label: '5/1',
-  },
-  {
-    value: 8,
-    label: '5/2',
-  },
+  { value: 1, label: '4/25' },
+  { value: 2, label: '4/26' },
+  { value: 3, label: '4/27' },
+  { value: 4, label: '4/28' },
+  { value: 5, label: '4/29' },
+  { value: 6, label: '4/30' },
+  { value: 7, label: '5/1' },
+  { value: 8, label: '5/2' },
 ];
 
 function valueLabelFormat(value) {
@@ -153,7 +97,7 @@ function App() {
         <MapContainer center={center} zoom={18} minZoom={17} maxZoom={22} zoomSnap={0.5} style={{ height: "90vh", width: "100vw", justifyContent: "center", alignItems: "center" }}>
           <TileLayer
             url={`https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibG1jZ2x5bm4iLCJhIjoiY2x3eTl2aG1yMWl4NTJscG43YXNpbzhhbCJ9.6mhcQQwoDKmKi2sPpi9Wug`}
-            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors (Liam McGlynn/Daily Bruin)'
             id="mapbox/streets-v11" // You can change this to other styles like 'mapbox/satellite-v9'
             tileSize={512}
             zoomOffset={-1}
