@@ -1,3 +1,4 @@
+import React from 'react';
 import Popup from './components/Popup.js';
 import { useState } from 'react';
 import PinButton from './components/PinButton.js';
@@ -5,6 +6,8 @@ import { MapContainer, TileLayer, useMap, Marker } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
 import pinIcon from './images/map-pin.png';
+import Box from '@mui/material/Box';
+import Slider from '@mui/material/Slider';
 
 const customIcon = L.icon({
   iconUrl: pinIcon,
@@ -13,6 +16,46 @@ const customIcon = L.icon({
 });
 
 L.Marker.prototype.options.icon = customIcon;
+
+const marks = [
+  {
+    value: 1,
+    label: '4/25',
+  },
+  {
+    value: 2,
+    label: '4/26',
+  },
+  {
+    value: 3,
+    label: '4/27',
+  },
+  {
+    value: 4,
+    label: '4/28',
+  },
+  {
+    value: 5,
+    label: '4/29',
+  },
+  {
+    value: 6,
+    label: '4/30',
+  },
+  {
+    value: 7,
+    label: '5/1',
+  },
+  {
+    value: 8,
+    label: '5/2',
+  },
+];
+
+function valueLabelFormat(value) {
+  let label = marks[value-1].label;
+  return `${label}`;
+}
 
 // const pinIcon = L.icon({
 //   iconUrl: pinIcon,
@@ -30,9 +73,9 @@ function App() {
   const center = [34.072000, -118.442184];
   const d = 0.0001;
 
-  const [sliderValue, setSliderValue] = useState(1);
-  const handleSliderChange = (e) => {
-    setSliderValue(e.target.value);
+  const [sliderValue, setValue] = React.useState([1, 8]);
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
   };
 
   return (
@@ -48,8 +91,8 @@ function App() {
             accessToken='pk.eyJ1IjoibG1jZ2x5bm4iLCJhIjoiY2x3eTl2aG1yMWl4NTJscG43YXNpbzhhbCJ9.6mhcQQwoDKmKi2sPpi9Wug'
             maxZoom={22}
           />
-          {sliderValue == 1 && (
-            <Marker position={center} 
+          {sliderValue[0] <= 1 && 1 <= sliderValue[1] && (
+            <Marker position={center}
               eventHandlers={{
                 click: () => {
                   console.log('marker clicked')
@@ -59,8 +102,8 @@ function App() {
               }}
             />
           )}
-          {sliderValue == 2 && (
-            <Marker position={[center[0] - 2 * d, center[1]]} 
+          {sliderValue[0] <= 2 && 2 <= sliderValue[1] && (
+            <Marker position={[center[0] - 2 * d, center[1]]}
               eventHandlers={{
                 click: () => {
                   console.log('marker clicked')
@@ -70,8 +113,8 @@ function App() {
               }}
             />
           )}
-          {sliderValue == 2 && (
-            <Marker position={[center[0] - 2 * d, center[1] + 2 * d]} 
+          {sliderValue[0] <= 2 && 2 <= sliderValue[1] && (
+            <Marker position={[center[0] - 2 * d, center[1] + 2 * d]}
               eventHandlers={{
                 click: () => {
                   console.log('marker clicked')
@@ -83,14 +126,29 @@ function App() {
           )}
 
         </MapContainer>
-        <input
-          type="range"
-          min="1"
-          max="3"
-          value={sliderValue}
-          onChange={handleSliderChange}
-          className="slider"
-        />
+        <div className='slider-box'>
+        <Box sx={{ width: 300 }}>
+          <Slider
+            value={sliderValue}
+            onChange={handleChange}
+            valueLabelDisplay="auto"
+            getAriaValueText={valueLabelFormat}
+            valueLabelFormat={valueLabelFormat}
+            min={1}
+            max={8}
+            // step={1}
+            sx={{
+              width: 300,
+              color: 'success.main',
+              '& .MuiSlider-thumb': {
+                borderRadius: '1px',
+              },
+            }}
+            aria-label='Custom Marks'
+            marks={marks}
+          />
+        </Box>
+        </div>
       </main>
       <Popup popupTitle={title} trigger={buttonPopup} setTrigger={setButtonPopup} />
     </div>
