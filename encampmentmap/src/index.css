@@ -1,0 +1,31 @@
+* { 
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Fira Sans', sans-serif;
+}
+
+main { 
+  padding: 32 px;
+  display: absolute;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.App {
+  align-items: center;
+  justify-content: center;
+}
+
+.slider-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.marker-icon:hover {
+  filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.95));
+}
