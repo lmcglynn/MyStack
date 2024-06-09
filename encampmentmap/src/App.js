@@ -7,9 +7,7 @@ import L from 'leaflet';
 import pinIcon from './images/map-pin2.png';
 import Box from '@mui/material/Box';
 import Slider from '@mui/material/Slider';
-import "overlapping-marker-spiderfier-leaflet/dist/oms";
 import MarkerClusterGroup from 'react-leaflet-cluster';
-const OverlappingMarkerSpiderfier = window.OverlappingMarkerSpiderfier;
 
 const customIcon = L.icon({
   iconUrl: pinIcon,
@@ -149,41 +147,6 @@ function valueLabelFormat(value) {
   return `${label}`;
 }
 
-// function ClusterGroup({ sliderValue, setButtonPopup, setTitle }) {
-//   const map = useMap();
-//   const mcg = L.markerClusterGroup();
-
-//   useEffect(() => {
-//     // const oms = new OverlappingMarkerSpiderfier(map, { keepSpiderfied: true });
-//     const newMarkers = markers
-//       .filter(marker => sliderValue[0] <= marker.day && marker.day <= sliderValue[1])
-//       .map((marker) => {
-//         const leafletMarker = L.marker(marker.coords, { icon: customIcon })
-//           .addTo(map)
-//           .on('click', () => {
-//             setButtonPopup(true);
-//             setTitle(marker.index);
-//           })
-//           .on('mouseover', function() {
-//             this.getElement().classList.add('marker-icon');
-//           })
-//           .on('mouseout', function() {
-//             this.getElement().classList.remove('marker-icon');
-//           });
-//         mcg.addMarker(leafletMarker);
-//         return leafletMarker;
-//       });
-//       map.addLayer(mcg);
-
-
-//     return () => {
-//       newMarkers.forEach(marker => map.removeLayer(marker));
-//     };
-//   }, [map, sliderValue, setButtonPopup, setTitle, mcg]);
-
-//   return null;
-// }
-
 function App() {
   const [buttonPopup, setButtonPopup] = useState(false);
   const [title, setTitle] = useState();
@@ -207,7 +170,7 @@ function App() {
         style={{ height: "90vh", width: "100vw", justifyContent: "center", alignItems: "center" }}>
           <TileLayer
             url={`https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibG1jZ2x5bm4iLCJhIjoiY2x3eTl2aG1yMWl4NTJscG43YXNpbzhhbCJ9.6mhcQQwoDKmKi2sPpi9Wug`}
-            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors | (Liam McGlynn/Daily Bruin)'
+            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors | Interactive by Liam McGlynn, Data Editor'
             id="mapbox/streets-v11" // You can change this to other styles like 'mapbox/satellite-v9'
             tileSize={512}
             zoomOffset={-1}
@@ -240,18 +203,19 @@ function App() {
           {/* <Spiderfier sliderValue={sliderValue} setButtonPopup={setButtonPopup} setTitle={setTitle} /> */}
         </MapContainer>
         <div className='slider-box'>
-        <Box sx={{ width: 300 }}>
+        <Box sx={{ width: "60vw", minWidth: 300 }}>
           <Slider
             value={sliderValue}
             onChange={handleChange}
-            valueLabelDisplay="auto"
+            valueLabelDisplay="off"
             getAriaValueText={valueLabelFormat}
             valueLabelFormat={valueLabelFormat}
             min={1}
             max={8}
             sx={{
-              width: 300,
-              color: 'success.main',
+              width: "60vw",
+              minWidth: 300,
+              color: 'info.main',
               '& .MuiSlider-thumb': {
                 borderRadius: '1px',
               },
