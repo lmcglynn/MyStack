@@ -1,7 +1,7 @@
 import React from 'react';
 import Popup from './components/Popup.js';
-import { useState, useEffect } from 'react';
-import { MapContainer, TileLayer, useMap, Marker } from 'react-leaflet'
+import { useState } from 'react';
+import { MapContainer, TileLayer, Marker } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
 import pinIcon from './images/map-pin2.png';
@@ -200,7 +200,6 @@ function App() {
                 />
               ))}
           </MarkerClusterGroup>
-          {/* <Spiderfier sliderValue={sliderValue} setButtonPopup={setButtonPopup} setTitle={setTitle} /> */}
         </MapContainer>
         <div className='slider-box'>
         <Box sx={{ width: "60vw", minWidth: 300 }}>
