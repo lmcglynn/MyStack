@@ -64,7 +64,7 @@ const markers = [
   { index: 35, coords: sum(center, [4.2*d, -0.4*d]), day: 2 },
   { index: 36, coords: sum(center, [4.3*d, -3.8*d]), day: 2 },
   { index: 37, coords: sum(center, [5*d, 2.8*d]), day: 2 },
-  { index: 38, coords: sum(center, [1*d, 1*d]), day: 2 }, // unknown
+  { index: 38, coords: sum(center, [1*d, 1*d]), day: 2 }, // unknown (sent)
   { index: 39, coords: sum(center, [0*d, 0*d]), day: 3 },
   { index: 40, coords: sum(center, [4.4*d, -0.6*d]), day: 3 },
   { index: 41, coords: sum(center, [3.6*d, 0*d]), day: 3 },
@@ -93,7 +93,7 @@ const markers = [
   { index: 64, coords: sum(center, [7.5*d, 2.2*d]), day: 5 },
   { index: 65, coords: sum(center, [-2*d, 5*d]), day: 5 },
   { index: 66, coords: sum(center, [-4*d, 5.2*d]), day: 5 },
-  { index: 67, coords: sum(center, [1*d, 1*d]), day: 6 }, // unknown
+  { index: 67, coords: sum(center, [1*d, 1*d]), day: 6 }, // unknown (sent)
   { index: 68, coords: sum(center, [1.5*d, 5.5*d]), day: 6 },
   { index: 69, coords: sum(center, [1*d, 5.3*d]), day: 6 },
   { index: 70, coords: sum(center, [3.1*d, 6.5*d]), day: 6 },
